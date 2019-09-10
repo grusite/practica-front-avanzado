@@ -1,0 +1,101 @@
+header {
+  height: 60px;
+  background-color: rgb(34, 33, 33, 0.9);
+}
+
+.navbar {
+  background-color: rgb(34, 33, 33, 0.9);
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  top: 0;
+  align-items: center;
+}
+
+.logo img {
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 10px;
+  width: 56px;
+}
+
+.left-menu {
+  flex: 1;
+}
+
+.left-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.left-menu ul li {
+  display: inline-block;
+}
+
+.right-menu {
+  margin-right: 10px;
+}
+
+.right-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.right-menu ul li {
+  display: inline-block;
+}
+
+#user-icon {
+  display: none;
+  margin: 0;
+}
+
+#sign-up {
+  background-color: #e56060;
+}
+
+#sign-up:hover {
+  color: rgb(34, 33, 33);
+}
+
+.navbar-item > a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 0.5rem;
+}
+
+#search-link {
+  padding: 0;
+}
+
+.navbar-item > a:hover {
+  color: #e56060;
+}
+
+@media all and (max-width: 768px) {
+  header {
+    height: 55px;
+  }
+
+  .navbar {
+    height: 3.5rem;
+    font-size: 1.1rem;
+    background-color: rgb(34, 33, 33);
+  }
+
+  #categories,
+  #most-recent,
+  #search-link,
+  #sign-up,
+  #login {
+    display: none;
+  }
+
+  #user-icon {
+    display: inline-block;
+  }
+}
