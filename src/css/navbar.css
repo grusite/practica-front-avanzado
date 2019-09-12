@@ -13,6 +13,12 @@ header {
   align-items: center;
 }
 
+.navbar .fas {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
 .logo img {
   margin-left: 10px;
   width: 56px;
