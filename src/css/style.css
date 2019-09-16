@@ -1,3 +1,6 @@
+@import 'navbar.css';
+@import 'loader.css';
+
 *,
 *::after,
 *::before {
@@ -8,6 +11,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(34, 33, 33, 0.8);
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-size: 16px;
 }
