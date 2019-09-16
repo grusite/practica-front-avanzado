@@ -45,7 +45,7 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
     },
     getBeerById: async id => {
       try {
-        const response = await fetch(`${showsAPIEndPoint}/${id}`, {
+        const response = await fetch(`${beerAPIEndPoint}/${id}`, {
           headers: {
             'Content-type': 'application/json',
             'X-API-KEY': API_KEY,

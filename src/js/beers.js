@@ -4,9 +4,9 @@ import api from './api.js'
 const beerTemplate = beer => `
   <section class="cards">  
     <article class="card">
-      <a href="#">
+      <a href="/detail/${beer.beerId}">
         <picture class="thumbnail">
-          <img src="${beer.image}" alt="Beer picture">
+          <img src="${beer.image ? beer.image : '/src/img/default.jpg'}" alt="Beer picture">
         </picture>
         <div class="card-content">
           <h2>${beer.name}</h2>
