@@ -19,3 +19,11 @@ closeIcon.addEventListener('click', () => {
   handleInputSearch('show', 'no-show')
   handleCloseIcon('show', 'no-show')
 })
+
+const hideSearchFilter = () => {
+  handleSearchIcon('show', 'no-show')
+  handleInputSearch('show', 'no-show')
+  handleCloseIcon('show', 'no-show')
+}
+
+export { hideSearchFilter }
