@@ -28,6 +28,12 @@ closeIcon.addEventListener('click', () => {
   handleCloseIcon('show', 'no-show')
 })
 
+const showSearchFilter = () => {
+  handleSearchIcon('no-show', 'show')
+  handleInputSearch('show', 'no-show')
+  handleCloseIcon('show', 'no-show')
+}
+
 const hideSearchFilter = () => {
   handleSearchIcon('show', 'no-show')
   handleInputSearch('show', 'no-show')
@@ -43,4 +49,4 @@ searchForm.addEventListener('submit', evt => {
   }
 })
 
-export { hideSearchFilter }
+export { showSearchFilter, hideSearchFilter }

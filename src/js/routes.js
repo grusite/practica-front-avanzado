@@ -1,12 +1,12 @@
 import renderBeersDOM from './beers.js'
-import { hideSearchFilter } from './navbar.js'
+import { showSearchFilter, hideSearchFilter } from './navbar.js'
 import renderDetail from './detail.js'
 // import { hideCommentForm, showCommentForm } from './ui.js'
 // import { addQuoteListener } from './quotesForm.js'
 // import { renderQuotes } from './quotes.js'
 
 page('/', () => {
-  // showSearchFilter()
+  showSearchFilter()
   // hideCommentForm()
   renderBeersDOM()
 })
