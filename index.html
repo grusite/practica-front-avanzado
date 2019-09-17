@@ -47,7 +47,18 @@
                   class="input search no-show"
                   type="text"
                 />
-                <button type="submit" class="button search">Search</button>
+                <select name="firstBrewed" class="dropdown">
+                  <option value="" selected disabled hidden>Año</option>
+                  <option value="2015">2015</option>
+                  <option value="2014">2014</option>
+                  <option value="2013">2013</option>
+                  <option value="2012">2012</option>
+                  <option value="2011">2011</option>
+                  <option value="2010">2010</option>
+                  <option value="2009">2009</option>
+                  <option value="2008">2008</option>
+                  <option value="2007">2007</option>
+                </select>
               </form>
             </li>
             <li class="navbar-item">
@@ -70,7 +81,15 @@
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <header class="img-header">
+        <picture>
+          <source srcset="./src/img/sized-img-header.jpg" media="(min-width: 768px)" />
+          <img src="./src/img/img-header.jpg" alt="Beer" />
+        </picture>
+      </header>
+      <div id="beer-section"></div>
+    </main>
 
     <div id="loader" class="loader-container hide">
       <div class="lds-roller">
