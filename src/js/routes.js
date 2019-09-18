@@ -1,4 +1,4 @@
-import renderBeersDOM from './beers.js'
+import { renderBeersDOM } from './beers.js'
 import { showSearchFilter, hideSearchFilter } from './navbar.js'
 import renderDetail from './detail.js'
 // import { hideCommentForm, showCommentForm } from './ui.js'

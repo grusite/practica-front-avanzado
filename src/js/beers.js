@@ -21,26 +21,22 @@ const beerTemplate = beer => `
 const renderBeers = (element, beers) => {
   const htmlBeers = beers.map(beerTemplate).join('')
 
-  console.log(beers.filter(beer => beer.firstBrewed.split('/')[1] === '2007'))
-  console.log(beers)
-
   element.innerHTML = `
     ${htmlBeers}
     `
 }
 
 const { getBeers, getSearchedBeers } = api()
+let searchedBeers = ''
 
-const renderBeersDOM = async (text, date) => {
+const renderBeersDOM = async text => {
   try {
     renderLoader('hide', 'show')
-    const beerSection = document.querySelector('#beer-section')
     if (text) {
-      const searchedBeers = await getSearchedBeers(text)
-      if (date)
-        searchedBeers = searchedBeers.filter(beer => beer.firstBrewed.split('/')[1] === date)
-      renderBeers(beerSection, searchedBeers)
-    } else renderBeers(beerSection, await getBeers())
+      searchedBeers = await getSearchedBeers(text)
+    } else searchedBeers = await getBeers()
+    const beerSection = document.querySelector('#beer-section')
+    renderBeers(beerSection, searchedBeers)
   } catch (err) {
     console.error(err.message)
   } finally {
@@ -48,4 +44,4 @@ const renderBeersDOM = async (text, date) => {
   }
 }
 
-export default renderBeersDOM
+export { renderBeersDOM, searchedBeers, renderBeers }

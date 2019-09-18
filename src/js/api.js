@@ -83,7 +83,9 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
     },
     createAndGetLikesById: async id => {
       try {
-        const response = await fetch(`${beerAPIEndPoint}/${id}/like`)
+        const response = await fetch(`${beerAPIEndPoint}/${id}/like`, {
+          method: 'POST',
+        })
         if (!response.ok) {
           throw new Error('Error fetching like by ID')
         }
