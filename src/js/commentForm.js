@@ -1,28 +1,28 @@
 import api from './api.js'
 import { renderComments } from './comments.js'
 
-const { createQuote } = api(QUOTES_API)
+const { createAndGetCommentById } = api()
 
-const quoteTemplate = ({ quote, date }) => `
+const commentTemplate = beer => `
     <div class="list-item">
-        <p>${quote}</p>
-        <span>${date}</span>
+        <p>${beer.comment}</p>
+        <span>${beer.dateComment}</span>
     </div>
 `
 
-const addQuoteListener = id => {
-  const quotesForm = document.querySelector('#quote-form')
-  const quotesInput = document.querySelector('#quote')
-  //   const quoteList = document.querySelector('#quoteList')
+const addCommentListener = id => {
+  const commentsForm = document.querySelector('#comment-form')
+  const commentsInput = document.querySelector('#comment')
+  //   const CommentList = document.querySelector('#CommentList')
 
-  quotesForm.addEventListener('submit', async evt => {
+  commentsForm.addEventListener('submit', async evt => {
     evt.preventDefault()
     try {
-      if (quotesInput.validity.valid) {
+      if (commentsInput.validity.valid) {
         // const id = window.location.pathname.split("/detail/")[1]
-        await renderComments(id, quotesInput.value)
-        // quoteList.innerHTML = quoteTemplate(response)
-        renderQuotes(id)
+        await createAndGetCommentById(id, commentsInput.value)
+        // CommentList.innerHTML = CommentTemplate(response)
+        renderComments(id)
       }
     } catch (err) {
       console.error(err.message)
@@ -30,4 +30,4 @@ const addQuoteListener = id => {
   })
 }
 
-export { addQuoteListener, quoteTemplate }
+export { addCommentListener, commentTemplate }

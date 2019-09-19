@@ -13,9 +13,6 @@ const beerTemplate = beer => `
           <h2>${beer.name}</h2>
           <p>${beer.description}</p>
           <p>Primera vez que se elaboró: <b>${beer.firstBrewed}</b></p>
-          <div class="like">
-            <p><span><b>Likes:</span> ${beer.likes}</b></p>
-          </div>
         </div>
       </a>
     </article>

@@ -1,9 +1,9 @@
 import { renderLoader } from './ui.js'
 import api from './api.js'
 import { beerSection } from './navbar.js'
-// import { renderQuotes } from './quotes.js'
+import { addCommentListener, commentTemplate } from './commentForm.js'
 
-const { getBeerById, createAndGetLikesById } = api()
+const { getBeerById, createAndGetLikesById, createAndGetCommentById } = api()
 
 const detailTemplate = beer => `
   <section class="cards">  
@@ -15,25 +15,32 @@ const detailTemplate = beer => `
         <h2>${beer.name}</h2>
         <p>${beer.description}</p>
         <p> Primera vez que se elaboró: <b>${beer.firstBrewed}</b></p>
-        <form id="quote-form" class="quote-form" novalidate>
-          <div class="like">
-            <p><b><span>Likes:</span> ${beer.likes}</b></p>
-            <div id="give-like">        
-              <i class="fas fa-heart fa-2x"></i>
+        <div class="like">
+          <p><b><span>Likes:</span> ${beer.likes}</b></p>
+          <div id="give-like">        
+            <i class="fas fa-heart fa-2x"></i>
+          </div>
+        </div>
+        <section id="commentSection" class="comment-section">
+          <div id="detail" class="detail-content"></div>
+          <div class="comments-list">
+            <h2>Comentarios</h2>
+            <div id="commentList"></div>
+          </div>
+          <form id="comment-form" class="comment-form" novalidate>
+            <div class="comment-input">
+              <label for="comment">Comentarios</label>
+              <input
+              required
+              id="comment"
+              placeholder="Mete un comentario"
+              class="input primary"
+              type="text"
+              />
             </div>
-          </div>
-          <div class="quote-input">
-            <label for="quote">Comentarios</label>
-            <input
-            required
-            id="quote"
-            placeholder="Mete un comentario"
-            class="input primary"
-            type="text"
-            />
-          </div>
-          <button type="submit" class="button primary">Comentar</button>
-        </form>
+            <button type="submit" class="button primary">Comentar</button>
+          </form>
+        </section>
       </div>
     </article>
   </section>
@@ -48,7 +55,6 @@ const addLikerListener = id => {
       console.log(id)
       evt.preventDefault()
       await createAndGetLikesById(id)
-      // beerSection.innerHTML = detailTemplate(beerLiked)
       renderDetail(id)
     } catch (err) {
       console.err(err.message)
@@ -58,15 +64,31 @@ const addLikerListener = id => {
   })
 }
 
+// const renderComments = async id => {
+//   try {
+//     const commentList = document.querySelector('#commentList')
+//     const comments = await createAndGetCommentById(id)
+//     const commentsElements = comments.map(commentTemplate).join('')
+//     commentList.innerHTML = commentsElements
+//   } catch (err) {
+//     console.error(err.message)
+//   }
+// }
+
 const renderDetail = async id => {
   try {
     const beer = await getBeerById(id)
-    // await renderQuotes(id)
+    // await rendercomments(id)
     beerSection.innerHTML = detailTemplate(beer)
+    const commentList = document.querySelector('#commentList')
+    const comments = beer.comment
+    const commentsElements = comments.map(commentTemplate).join('')
+    commentList.innerHTML = commentsElements
   } catch (err) {
     console.error(err.message)
   } finally {
     addLikerListener(id)
+    addCommentListener(id)
   }
 }
 

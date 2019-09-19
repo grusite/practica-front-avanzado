@@ -20,8 +20,8 @@ page('/detail/:id', async ctx => {
   hideSearchFilter()
   renderImgHeader('show', 'no-show')
   renderDetail(id)
-  // addQuoteListener(id)
-  // renderQuotes(id)
+  // addCommentListener(id)
+  // renderComments(id)
 })
 page('*', () => {
   hideSearchFilter()
