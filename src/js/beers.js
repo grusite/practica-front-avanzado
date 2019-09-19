@@ -36,7 +36,6 @@ const renderBeersDOM = async text => {
     if (text) {
       searchedBeers = await getSearchedBeers(text)
     } else searchedBeers = await getBeers()
-    // const beerSection = document.querySelector('#beer-section')
     renderBeers(beerSection, searchedBeers)
   } catch (err) {
     console.error(err.message)

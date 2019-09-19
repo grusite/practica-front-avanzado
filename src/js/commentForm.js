@@ -1,5 +1,6 @@
 import api from './api.js'
-import { renderComments } from './comments.js'
+import { renderLoader } from './ui.js'
+import { renderDetail } from './detail.js'
 
 const { createAndGetCommentById } = api()
 
@@ -13,19 +14,19 @@ const commentTemplate = beer => `
 const addCommentListener = id => {
   const commentsForm = document.querySelector('#comment-form')
   const commentsInput = document.querySelector('#comment')
-  //   const CommentList = document.querySelector('#CommentList')
 
   commentsForm.addEventListener('submit', async evt => {
     evt.preventDefault()
     try {
+      renderLoader('hide', 'show')
       if (commentsInput.validity.valid) {
-        // const id = window.location.pathname.split("/detail/")[1]
         await createAndGetCommentById(id, commentsInput.value)
-        // CommentList.innerHTML = CommentTemplate(response)
-        renderComments(id)
+        renderDetail(id)
       }
     } catch (err) {
       console.error(err.message)
+    } finally {
+      renderLoader('show', 'hide')
     }
   })
 }

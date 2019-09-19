@@ -1,4 +1,4 @@
-Para buscar por filtro, elegir y filtra según el resultado mostrado.
+Para buscar por filtro, elegir y filtra según el resultado mostrado. EXPLICAR
 
 Para dar likes pinchar en el corazón rojo.
 
@@ -6,4 +6,6 @@ Te devuelve un 0 porque no lo renderiza bien la API. LO HE SOLUCIONADO LLAMANDO 
 
 Queda que se pueda clickar más veces que no lo consigo.
 
-He decidido hacer el de likes porque el de comentarios ya lo hicimos en clase.
+Comentario y renderiza solo.
+
+El título se cambia por cada navegación.

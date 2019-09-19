@@ -38,7 +38,8 @@
   padding: 1.4em;
 }
 
-.card-content h2 {
+.card-content h2,
+.comments-list h2 {
   margin-top: 0;
   margin-bottom: 0.5em;
   font-size: 1rem;
@@ -72,9 +73,6 @@
   color: #e56060;
 }
 
-.card-content .comments-list h2 {
-  font-size: 1.2rem;
-}
 .comment-section .comments-list .list-item {
   position: relative;
 }
