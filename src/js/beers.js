@@ -1,17 +1,19 @@
 import { renderLoader } from './ui.js'
 import api from './api.js'
+import { beerSection } from './navbar.js'
 
 const beerTemplate = beer => `
-  <section class="cards">  
+  <section class="cards">
     <article class="card">
-      <a href="/detail/${beer.beerId}">
+      <a href="/detail/${beer.beerId}">  
         <picture class="thumbnail">
           <img src="${beer.image ? beer.image : '/src/img/default.jpg'}" alt="Beer picture">
         </picture>
         <div class="card-content">
           <h2>${beer.name}</h2>
           <p>${beer.description}</p>
-          <p>${beer.firstBrewed}</p>
+          <p>Primera vez que se elaboró: <b>${beer.firstBrewed}</b></p>
+          <p class="likes">Likes: <b>${beer.likes}</b></p>
         </div>
       </a>
     </article>
@@ -35,7 +37,7 @@ const renderBeersDOM = async text => {
     if (text) {
       searchedBeers = await getSearchedBeers(text)
     } else searchedBeers = await getBeers()
-    const beerSection = document.querySelector('#beer-section')
+    // const beerSection = document.querySelector('#beer-section')
     renderBeers(beerSection, searchedBeers)
   } catch (err) {
     console.error(err.message)

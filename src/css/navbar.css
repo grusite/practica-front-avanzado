@@ -1,10 +1,17 @@
-header {
+main + header {
   height: 60px;
   background-color: rgb(34, 33, 33, 0.9);
 }
 
-.img-header {
+.img-header,
+.img-notfound {
   position: relative;
+  top: 60px;
+}
+
+#img-header,
+#img-notfound {
+  width: 100vw;
 }
 
 .navbar {
@@ -45,11 +52,11 @@ header {
   color: #ffffff;
 }
 
-.navbar .no-show {
+.no-show {
   display: none;
 }
 
-.navbar .show {
+.show {
   display: block;
 }
 
@@ -110,7 +117,7 @@ header {
 }
 
 @media all and (max-width: 768px) {
-  header {
+  main + header {
     height: 55px;
   }
 

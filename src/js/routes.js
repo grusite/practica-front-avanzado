@@ -1,25 +1,31 @@
 import { renderBeersDOM } from './beers.js'
-import { showSearchFilter, hideSearchFilter } from './navbar.js'
+import { showSearchFilter, hideSearchFilter, beerSection } from './navbar.js'
 import renderDetail from './detail.js'
-// import { hideCommentForm, showCommentForm } from './ui.js'
-// import { addQuoteListener } from './quotesForm.js'
-// import { renderQuotes } from './quotes.js'
+import { renderImgHeader } from './ui.js'
+
+const notFoundTemplate = `
+  <img id="img-notfound" src="./src/img/notFound.jpg" alt="Not Found IMG" />
+`
+const renderNotFound = () => (beerSection.innerHTML = notFoundTemplate)
 
 page('/', () => {
   showSearchFilter()
-  // hideCommentForm()
+  renderImgHeader('no-show', 'show')
   renderBeersDOM()
 })
 page('/detail/:id', ctx => {
-  console.log('Detail')
   const {
     params: { id },
   } = ctx
-  console.log(id)
   hideSearchFilter()
-  // showCommentForm()
+  renderImgHeader('show', 'no-show')
   renderDetail(id)
   // addQuoteListener(id)
   // renderQuotes(id)
+})
+page('*', () => {
+  hideSearchFilter()
+  renderImgHeader('show', 'no-show')
+  renderNotFound()
 })
 page()

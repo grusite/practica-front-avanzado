@@ -1,6 +1,21 @@
+.titulo-lista {
+  position: relative;
+  top: 4rem;
+  color: #e56060;
+  font-weight: bold;
+  text-align: center;
+}
+
+#beer-section {
+  position: relative;
+  top: 2rem;
+  margin: 100px 300px 200px 300px;
+}
+
 .card {
   background: white;
-  margin-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 .card a {
@@ -14,9 +29,9 @@
 
 .card img {
   display: block;
-  width: 20%;
-  height: 10%;
+  width: 150px;
   margin: auto;
+  padding: 25px;
 }
 
 .card-content {
@@ -37,20 +52,36 @@
   color: #898989;
 }
 
-@media all and (min-width: 40em) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.card-content p .like {
+}
+
+@media all and (max-width: 320px) {
+  #beer-section {
+    margin: 50px 50px 50px 50px;
   }
 
-  .card {
-    flex: 0 1 calc(50% - 1em);
+  .card img {
+    width: 100px;
   }
 }
 
-@media all and (min-width: 60em) {
-  .card {
-    flex: 0 1 calc(25% - 1em);
+@media all and (min-width: 320px) and (max-width: 768px) {
+  #beer-section {
+    margin: 50px 100px 100px 100px;
+  }
+
+  .card img {
+    width: 100px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  #beer-section {
+    margin: 100px 200px 200px 200px;
+  }
+
+  .card img {
+    width: 115px;
+    padding: 20px;
   }
 }

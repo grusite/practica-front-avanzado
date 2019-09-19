@@ -1,14 +1,13 @@
 const loader = document.querySelector('#loader')
+const imgHeader = document.querySelector('.img-header')
 
 const toggle = element => (removeClass, addClass) => {
   element.classList.remove(removeClass)
   element.classList.add(addClass)
 }
 
-const toggleClass = (element, toggleClass) => {
-  element.classList.toggle(toggleClass)
-}
-
 const renderLoader = toggle(loader)
 
-export { toggle, toggleClass, renderLoader }
+const renderImgHeader = toggle(imgHeader)
+
+export { toggle, renderLoader, renderImgHeader }
