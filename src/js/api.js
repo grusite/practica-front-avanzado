@@ -75,7 +75,7 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
         if (!response.ok) {
           throw new Error('Error fetching quote by ID')
         }
-        const resBody = response.json()
+        const resBody = await response.json()
         return resBody.beer
       } catch (err) {
         console.error(err.message)
@@ -85,11 +85,15 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
       try {
         const response = await fetch(`${beerAPIEndPoint}/${id}/like`, {
           method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+            'X-API-KEY': API_KEY,
+          },
         })
         if (!response.ok) {
           throw new Error('Error fetching like by ID')
         }
-        const data = response.json()
+        const data = await response.json()
         return data.beer
       } catch (err) {
         console.error(err.message)

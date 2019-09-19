@@ -1,6 +1,6 @@
 import { renderBeersDOM } from './beers.js'
 import { showSearchFilter, hideSearchFilter, beerSection } from './navbar.js'
-import renderDetail from './detail.js'
+import { renderDetail } from './detail.js'
 import { renderImgHeader } from './ui.js'
 
 const notFoundTemplate = `
@@ -13,7 +13,7 @@ page('/', () => {
   renderImgHeader('no-show', 'show')
   renderBeersDOM()
 })
-page('/detail/:id', ctx => {
+page('/detail/:id', async ctx => {
   const {
     params: { id },
   } = ctx

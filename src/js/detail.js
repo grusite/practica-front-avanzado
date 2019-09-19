@@ -1,8 +1,9 @@
+import { renderLoader } from './ui.js'
 import api from './api.js'
 import { beerSection } from './navbar.js'
 // import { renderQuotes } from './quotes.js'
 
-const { getBeerById } = api()
+const { getBeerById, createAndGetLikesById } = api()
 
 const detailTemplate = beer => `
   <section class="cards">  
@@ -14,8 +15,13 @@ const detailTemplate = beer => `
         <h2>${beer.name}</h2>
         <p>${beer.description}</p>
         <p> Primera vez que se elaboró: <b>${beer.firstBrewed}</b></p>
-        <p>Likes: <b>${beer.likes}</b></p> 
         <form id="quote-form" class="quote-form" novalidate>
+          <div class="like">
+            <p><b><span>Likes:</span> ${beer.likes}</b></p>
+            <div id="give-like">        
+              <i class="fas fa-heart fa-2x"></i>
+            </div>
+          </div>
           <div class="quote-input">
             <label for="quote">Comentarios</label>
             <input
@@ -33,6 +39,25 @@ const detailTemplate = beer => `
   </section>
 `
 
+const addLikerListener = id => {
+  const giveLike = document.querySelector('#give-like')
+  giveLike.addEventListener('click', async evt => {
+    try {
+      renderLoader('hide', 'show')
+      console.log('clicked')
+      console.log(id)
+      evt.preventDefault()
+      await createAndGetLikesById(id)
+      // beerSection.innerHTML = detailTemplate(beerLiked)
+      renderDetail(id)
+    } catch (err) {
+      console.err(err.message)
+    } finally {
+      renderLoader('show', 'hide')
+    }
+  })
+}
+
 const renderDetail = async id => {
   try {
     const beer = await getBeerById(id)
@@ -40,7 +65,9 @@ const renderDetail = async id => {
     beerSection.innerHTML = detailTemplate(beer)
   } catch (err) {
     console.error(err.message)
+  } finally {
+    addLikerListener(id)
   }
 }
 
-export default renderDetail
+export { renderDetail, addLikerListener }

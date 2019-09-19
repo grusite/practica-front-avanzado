@@ -52,7 +52,24 @@
   color: #898989;
 }
 
-.card-content p .like {
+.like {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.3em;
+}
+
+.like span {
+  color: #e56060;
+}
+
+#give-like {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fas.fa-heart {
+  color: #e56060;
 }
 
 @media all and (max-width: 320px) {

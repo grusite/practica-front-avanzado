@@ -44,7 +44,7 @@
   padding: 1rem 2rem;
   justify-content: center;
   width: 100%;
-  position: fixed;
+  position: relative;
   bottom: 0;
 }
 
