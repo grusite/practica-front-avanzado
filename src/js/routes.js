@@ -1,5 +1,6 @@
 import { renderBeersDOM } from './beers.js'
 import { showSearchFilter, hideSearchFilter } from './navbar.js'
+/* eslint-disable no-undef*/
 import { renderDetail } from './detail.js'
 import { renderHeaderImg, renderTituloHeader } from './ui.js'
 

@@ -47,7 +47,8 @@
 }
 
 .card-content p,
-.card-content span {
+.card-content span,
+.card-content form {
   font-size: 80%;
   margin-bottom: 1.5em;
   color: #898989;
@@ -73,6 +74,26 @@
   color: #e56060;
 }
 
+.input.primary {
+  margin: 5px 0;
+  border: 1px solid #e56060;
+  color: #898989;
+}
+
+.button.primary {
+  background-color: #e56060;
+  border-radius: 2px;
+  border: 1px solid #e56060;
+  padding: 5px 10px;
+  color: #ffffff;
+  transition: all linear 0.3s;
+  cursor: pointer;
+}
+
+.button.primary:hover {
+  background-color: #df8282;
+}
+
 .comment-section .comments-list .list-item {
   position: relative;
 }
@@ -95,6 +116,7 @@
 @media all and (max-width: 320px) {
   #beer-section {
     margin: 50px 50px 50px 50px;
+    top: 2em;
   }
 
   .card img {
@@ -105,6 +127,7 @@
 @media all and (min-width: 320px) and (max-width: 768px) {
   #beer-section {
     margin: 50px 100px 100px 100px;
+    top: 2em;
   }
 
   .card img {

@@ -52,7 +52,7 @@ closeIcon.addEventListener('click', () => {
 searchForm.addEventListener('submit', evt => {
   evt.preventDefault()
   if (inputSearch.validity.valid) {
-    //  Render Shows
+    //  Render beers
     setItem('navbar-input', inputSearch.value)
     renderBeersDOM(inputSearch.value, dropdown.value)
   }
@@ -62,7 +62,5 @@ dropdown.addEventListener('change', () => {
   const dateFilter = searchedBeers.filter(beer => beer.firstBrewed.split('/')[1] === dropdown.value)
   renderBeers(beerSection, dateFilter)
 })
-
-// if (date) searchedBeers = searchedBeers.filter(beer => beer.firstBrewed.split('/')[1] === date)
 
 export { showSearchFilter, hideSearchFilter, beerSection }

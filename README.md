@@ -11,3 +11,7 @@ Comentario y renderiza solo.
 El título se cambia por cada navegación.
 
 Página de 404 si pones otra ruta.
+
+Añado ESLint con x reglas
+
+Añado Husky para testear eslint

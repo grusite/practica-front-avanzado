@@ -16,7 +16,7 @@ main + header {
 }
 
 .navbar {
-  background-color: rgb(34, 33, 33, 0.9);
+  background-color: rgb(34, 33, 33);
   width: 100%;
   z-index: 10;
   position: fixed;
@@ -27,6 +27,27 @@ main + header {
 
 #search-form {
   display: flex;
+}
+
+.input.search,
+.input.primary,
+.dropdown {
+  border-radius: 2px;
+  border-style: none;
+  font-size: 1rem;
+}
+
+.input.search,
+.input.primary {
+  width: 100%;
+  padding: 10px;
+}
+
+.input.search,
+.dropdown {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px solid #e56060;
 }
 
 .navbar .navbar-icon {
@@ -118,16 +139,62 @@ main + header {
   color: #e56060;
 }
 
-@media all and (max-width: 768px) {
-  .navbar {
-    height: 3.5rem;
-    background-color: rgb(34, 33, 33);
+@media all and (max-width: 320px) {
+  .input.search,
+  .dropdown {
+    width: 50px;
+    font-size: 60%;
   }
 
-  .navbar input {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  #sign-up,
+  #login,
+  .left-menu {
+    display: none;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 350px) {
+  .input.search,
+  .dropdown {
     width: 70px;
-    height: 30px;
-    margin-right: 10px;
+    font-size: 80%;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  #sign-up,
+  #login,
+  .left-menu {
+    display: none;
+  }
+}
+
+@media all and (min-width: 350px) and (max-width: 510px) {
+  .input.search {
+    width: 70px;
+  }
+
+  .input.search,
+  .dropdown,
+  .navbar-item a {
+    font-size: smaller;
+  }
+
+  #sign-up,
+  #login {
+    display: none;
+  }
+}
+
+@media all and (min-width: 510px) and (max-width: 768px) {
+  .input.search {
+    width: 200px;
   }
 
   #sign-up,

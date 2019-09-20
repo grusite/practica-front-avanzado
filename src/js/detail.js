@@ -1,7 +1,7 @@
 import { renderLoader } from './ui.js'
 import api from './api.js'
 import { beerSection } from './navbar.js'
-import { addCommentListener, commentTemplate } from './commentForm.js'
+import { addCommentListener, commentTemplate } from './comments.js'
 
 const { getBeerById, createAndGetLikesById } = api()
 
@@ -23,7 +23,6 @@ const detailTemplate = beer => `
           </div>
           <form id="comment-form" class="comment-form" novalidate>
             <div class="comment-input">
-              <label for="comment">Comentarios</label>
               <input
               required
               id="comment"
