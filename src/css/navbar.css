@@ -6,12 +6,13 @@ main + header {
 .img-header,
 .img-notfound {
   position: relative;
-  top: 60px;
+  top: 55px;
 }
 
 #img-header,
 #img-notfound {
   width: 100vw;
+  background-color: #e56060;
 }
 
 .navbar {
@@ -93,7 +94,8 @@ main + header {
   display: inline-block;
 }
 
-#sign-up {
+#sign-up,
+#img-notfound {
   background-color: #e56060;
 }
 
@@ -117,10 +119,6 @@ main + header {
 }
 
 @media all and (max-width: 768px) {
-  main + header {
-    height: 55px;
-  }
-
   .navbar {
     height: 3.5rem;
     background-color: rgb(34, 33, 33);

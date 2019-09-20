@@ -14,10 +14,10 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script type="module" src="src/js/routes.js"></script>
+    <script type="module" src="/js/routes.js"></script>
     <title>BeerFlix</title>
   </head>
 
@@ -26,7 +26,7 @@
       <nav class="navbar">
         <div class="logo">
           <a id="logo-link" href="/">
-            <img src="src/img/beerIcon.png" alt="Avatar Beer" />
+            <img src="/img/beerIcon.png" alt="Avatar Beer" />
           </a>
         </div>
 
@@ -82,12 +82,7 @@
     </header>
 
     <main>
-      <header class="img-header">
-        <picture>
-          <source srcset="./src/img/sized-img-header.jpg" media="(min-width: 768px)" />
-          <img id="img-header" src="./src/img/img-header.jpg" alt="Beer" />
-        </picture>
-      </header>
+      <header class="img-header"></header>
       <h2 class="titulo-lista">Lista de Cervezas</h2>
       <div id="beer-section"></div>
     </main>

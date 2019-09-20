@@ -9,7 +9,7 @@ const detailTemplate = beer => `
   <section class="cards">  
     <article class="card">
       <picture class="thumbnail">
-        <img src="${beer.image ? beer.image : '/src/img/default.jpg'}" alt="Beer picture">
+        <img src="${beer.image ? beer.image : '/img/default.jpg'}" alt="Beer picture">
       </picture>
       <div class="card-content">
         <h2>${beer.name}</h2>
@@ -53,7 +53,7 @@ const addLikerListener = id => {
       renderLoader('hide', 'show')
       evt.preventDefault()
       await createAndGetLikesById(id)
-      renderDetail(id)
+      await renderDetail(id)
     } catch (err) {
       console.err(err.message)
     } finally {
@@ -64,6 +64,7 @@ const addLikerListener = id => {
 
 const renderDetail = async id => {
   try {
+    renderLoader('hide', 'show')
     const beer = await getBeerById(id)
     const comments = beer.comment
     beerSection.innerHTML = detailTemplate(beer)
@@ -77,6 +78,7 @@ const renderDetail = async id => {
   } finally {
     addLikerListener(id)
     addCommentListener(id)
+    renderLoader('show', 'hide')
   }
 }
 

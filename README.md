@@ -9,3 +9,5 @@ Queda que se pueda clickar más veces que no lo consigo.
 Comentario y renderiza solo.
 
 El título se cambia por cada navegación.
+
+Página de 404 si pones otra ruta.

@@ -21,7 +21,7 @@ const addCommentListener = id => {
       renderLoader('hide', 'show')
       if (commentsInput.validity.valid) {
         await createAndGetCommentById(id, commentsInput.value)
-        renderDetail(id)
+        await renderDetail(id)
       }
     } catch (err) {
       console.error(err.message)

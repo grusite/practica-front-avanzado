@@ -9,10 +9,29 @@ const toggle = element => (removeClass, addClass) => {
 
 const renderLoader = toggle(loader)
 
-const renderImgHeader = toggle(imgHeader)
-
 const renderTituloHeader = text => {
   tituloHeader.innerHTML = text
 }
 
-export { toggle, renderLoader, renderImgHeader, renderTituloHeader }
+// const notFoundTemplate = `
+//   <picture>
+//     <img id="img-notfound" src="/img/404-img.png" alt="Not Found IMG" />
+//   </picture>
+// `
+const sizedHeaderImg = '<source srcset="/img/sized-img-header.jpg" media="(min-width: 768px)" />'
+const headerImg = '<img id="img-header" src="/img/img-header.jpg" alt="Beer" />'
+const notFoundImg = '<img id="img-header" src="/img/404-img.png" alt="Not Found" />'
+
+const imageTemplate = sizedImg => `
+<picture>
+  ${sizedImg === 'sized' ? sizedHeaderImg + headerImg : notFoundImg}
+</picture>
+`
+const renderHeaderImg = (noImg, sizedImg) => {
+  if (noImg === 'noImg') imgHeader.innerHTML = ''
+  else {
+    imgHeader.innerHTML = imageTemplate(sizedImg)
+  }
+}
+
+export { toggle, renderLoader, renderHeaderImg, renderTituloHeader }
