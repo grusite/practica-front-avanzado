@@ -24,7 +24,7 @@ The web page seems intuitive, but just in case I will explain the functionality:
 - Once page is loaded, it will load a list of ten beers
 - The user can filter the list by using the search input
 - Also, the user can filter by date (filtering the data already rendered)
-- In every beer detail, the user can comment using the form
+- In every beer detail, the user can add a comment using input given
 - Also the user can give a like by clicking the red hearth
 - In each navigation, both title an image will change
 - In case you choose another path not known by the app, it will return you a 404 page
