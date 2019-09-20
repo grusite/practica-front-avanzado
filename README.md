@@ -1,7 +1,3 @@
-Para buscar por filtro, elegir y filtra según el resultado mostrado. EXPLICAR
-
-Para dar likes pinchar en el corazón rojo.
-
 # Project Title
 
 BeerFlix
